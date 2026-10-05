@@ -1,8 +1,5 @@
 """Fake inbox for development. Real IMAP data will replace it in week 3."""
 
-# Message-IDs that were already saved to the DB (later: processed_emails table)
-PROCESSED_IDS: set[str] = {"<007@mail>"}
-
 EMAILS: list[dict] = [
     {"message_id": "<001@mail>", "from": "reports@partner-a.example",
      "subject": "Report 2026-09-30 Kyiv", "attachments": ["kyiv_2026-09-30.xlsx"]},

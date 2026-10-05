@@ -222,3 +222,7 @@ Thumbs.db
 
 # Editor
 .vscode/
+
+# Runtime files
+data/
+output/
