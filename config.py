@@ -31,3 +31,26 @@ ALLOWED_EXTENSIONS: tuple[str, ...] = (".xlsx",)
 IMAP_HOST = os.getenv("IMAP_HOST", "")
 IMAP_USER = os.getenv("IMAP_USER", "")
 IMAP_PASSWORD = os.getenv("IMAP_PASSWORD", "")
+
+
+# --- Excel template (Day 7) ---
+
+# Columns every report must have after normalization
+REQUIRED_COLUMNS: list[str] = ["date", "city", "product", "quantity", "price"]
+
+# Columns that must contain numbers
+NUMERIC_COLUMNS: list[str] = ["quantity", "price"]
+
+# Known alternative names -> standard name (keys are lowercase, stripped)
+COLUMN_ALIASES: dict[str, str] = {
+    "qty": "quantity",
+    "price, uah": "price",
+    "дата": "date",
+    "місто": "city",
+    "товар": "product",
+    "кількість": "quantity",
+    "ціна": "price",
+}
+
+# Look for the header row only among the first N rows of a sheet
+HEADER_SEARCH_ROWS = 10
