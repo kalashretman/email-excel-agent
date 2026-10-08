@@ -54,3 +54,15 @@ COLUMN_ALIASES: dict[str, str] = {
 
 # Look for the header row only among the first N rows of a sheet
 HEADER_SEARCH_ROWS = 10
+
+# --- Claude API (Day 8) ---
+
+ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
+
+# Cheapest and fastest model by default; override in .env if needed
+LLM_MODEL = os.getenv("LLM_MODEL", "claude-haiku-5-5")
+
+# USD per 1M tokens for LLM_MODEL, used only to estimate cost.
+# Check the pricing page: Haiku 5.5 is cheaper for prompts under 100K tokens.
+PRICE_INPUT_PER_MTOK = float(os.getenv("PRICE_INPUT_PER_MTOK", "0.10"))
+PRICE_OUTPUT_PER_MTOK = float(os.getenv("PRICE_OUTPUT_PER_MTOK", "0.50"))
