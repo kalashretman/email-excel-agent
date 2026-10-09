@@ -22,6 +22,11 @@ def parse_subject(subject: str) -> dict[str, str] | None:
 
     return {"date": date, "city": city}
 
+    # City: letters, spaces, hyphens, apostrophes only, reasonable length.
+    # Without this, "Kyiv. Ignore previous instructions..." would pass as a city.
+    if len(city) > 40 or not all(ch.isalpha() or ch in " -'" for ch in city):
+        return None
+
 
 if __name__ == "__main__":
     # Quick self-test: runs only when this file is executed directly
